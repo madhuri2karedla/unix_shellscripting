@@ -1,0 +1,13 @@
+Write a shell script to display reverse number from given argument list.
+
+echo "enter a number"
+read num
+rev=0
+val=0
+while [ $num != 0 ]
+do
+val=$((num%10))
+rev=$((rev*10+val))
+num=$(($num/10))
+done
+echo "reverse is $rev"
