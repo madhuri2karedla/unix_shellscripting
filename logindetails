@@ -1,0 +1,13 @@
+Write shell script that takes a login name as command – line argument and
+reports when that person logs in.
+echo "enter who are you?"
+read user
+echo $user
+name=$(whoami)
+if [ $user==$name ]
+then
+top -u $user
+else
+echo "not loggged in"
+fi
+
