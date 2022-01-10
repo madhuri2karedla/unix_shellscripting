@@ -1,0 +1,8 @@
+Write a shell script that accepts two integers as its arguments and computes
+the value of first number raised to the power of the second number
+if [ $# -ne 2 ]
+then
+echo "invalid no of arguments"
+fi
+pwr=`echo $1^$2|bc`
+echo "$1 raised to $2 is: $pwr"
