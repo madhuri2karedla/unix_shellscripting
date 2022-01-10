@@ -1,0 +1,6 @@
+Write a shell script that determines the period for which a specified user is
+working on the system.
+echo "enter username"
+read user
+last $user
+
