@@ -1,0 +1,14 @@
+Write a shell script which will display Fibonacci series up to a given number of
+arguments.
+echo "enter a no of series:"
+read num
+a=0
+b=1
+fn=0
+for (( i=0;i<=num;i++ ))
+do
+echo "$a"
+fn=$((a+b))
+a=$b
+b=$fn
+done
