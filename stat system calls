@@ -1,0 +1,38 @@
+Write a C program that takes one or more file or directory names as a
+command line input and reports the following information on the file:
+i) File type.
+ii) Number of links.
+iii) Read, write and execute permissions.
+iv) Time of last access (Note : Use stat/fstat system calls).
+#include<stdio.h>
+#include<unistd.h>
+#include<sys/stat.h>
+#include<sys/types.h>
+#include<fcntl.h>
+void main()
+{
+int fd;
+struct stat buf;
+fd=open("exp4aa.sh",O_RDONLY|O_CREAT,600);
+if(fd!=-1)
+{
+if(fstat(fd,&buf)==0)
+{
+printf("\nmode of file is %u",buf.st_mode);
+printf("\nsize of file is %u",buf.st_size);
+printf("\ndevice name is %u",buf.st_dev);
+printf("\ninode of file is %u",buf.st_ino);
+printf("\nno of links are %u",buf.st_nlink);
+printf("\nowner of a file is %u",buf.st_uid);
+printf("\nno of blocks is %u",buf.st_blocks);
+printf("\ngroup owner is %u",buf.st_gid);
+printf("\n blocksize if the file%u",buf.st_blksize);
+printf("\ntime of last modified is %u\n",buf.st_ctime);
+}
+else
+printf("error in fstat() syscall");
+}
+else
+printf("error in open() sys call");
+}
+
